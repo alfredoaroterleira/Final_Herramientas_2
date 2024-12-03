@@ -1,0 +1,193 @@
+---
+title: "Entrega Final (Loayza y Aro)"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+library(ggplot2)
+library(sf)
+library(dplyr)
+library(rmapshaper)
+library(ggspatial)
+library(htmltools)
+```
+
+
+Spatial Data I {data-icon="fa-signal"}
+=========================================== 
+    
+Column {data-width=500} {.tabset}
+-------------------------------------------
+
+### Alemania
+
+```{r}
+alemania_gob <- readRDS("alemania_gob.Rds")
+alemania_gob
+```
+
+### Ciudades
+
+```{r}
+alemania_ciudades <- readRDS("alemania_ciudades.Rds")
+alemania_ciudades
+```
+
+### Ríos
+
+```{r}
+alemania_rios <- readRDS("alemania_rios.Rds")
+alemania_rios
+```
+
+### Aeropuertos
+
+```{r}
+alemania_aero <- readRDS("alemania_aero.Rds")
+alemania_aero
+```
+
+### All
+
+```{r}
+alemania_all <- readRDS("alemania_all.Rds")
+alemania_all
+```
+
+
+
+Column {data-width=500} {.tabset}
+-----------------------------------------------------------------------
+
+### Canadá
+
+```{r}
+canada_admin <- readRDS("canada_admin.Rds")
+canada_admin
+```
+
+### Ciudades
+
+```{r}
+canada_cities <- readRDS("canada_cities.Rds")
+canada_cities
+```
+
+### Ríos
+
+```{r}
+canada_rios <- readRDS("canada_rivers.Rds")
+canada_rios
+```
+
+### Aeropuertos
+
+```{r}
+canada_aero <- readRDS("canada_airports.Rds")
+canada_aero
+```
+
+### All
+
+```{r}
+canada_all <- readRDS("canada_all.Rds")
+canada_all
+```
+
+
+Spatial Data II {data-icon="fa-signal"}
+=========================================== 
+    
+Column {data-width=500} {.tabset}
+-----------------------------------------------------------------------
+
+### Mejora
+
+```{r}
+peru_mejora <- readRDS("peru_mejora.Rds")
+peru_mejora
+```
+
+### Provincias
+
+```{r}
+p_mejor <- readRDS("p_mejor.Rds")
+p_mejor
+```
+
+
+Column {data-width=500} {.tabset}
+-----------------------------------------------------------------------
+
+### Empeora
+
+```{r}
+peru_empeora <- readRDS("peru_empeora.Rds")
+peru_empeora
+```
+
+### Provincias
+
+```{r}
+p_peor <- readRDS("p_peor.Rds")
+p_peor
+```
+
+Networks I {data-icon="fa-signal"}
+===================================== 
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Empresas-Empresas
+
+```{r}
+knitr::include_graphics("empresa_network_graph.png")
+```
+
+### Centrality, Betweenness and Degree 
+
+```{r}
+knitr::include_graphics("corruptos_posicion.png")
+```
+
+### Interactivo
+
+```{r}
+tags$iframe(src = "red_interactiva_componentes_empresas.html", width = "100%", height = "600px", frameborder = 0)
+```
+
+
+Networks II {data-icon="fa-signal"}
+===================================== 
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+```{r}
+tags$iframe(src = "red_interactiva.html", width = "100%", height = "600px", frameborder = 0)
+```
+
+
+    
+Spatial Data III {data-icon="fa-signal"}
+===================================== 
+
+Column {.tabset}
+-----------------------------------------------------------------------
+
+### Contagiados Covid
+
+```{r}
+knitr::include_graphics("autocorrelation_moran_covid_contagiados.png")
+```
+
+### Fallecidos Covid
+
+```{r}
+knitr::include_graphics("muertos_moran.png")
+```
